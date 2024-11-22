@@ -1,23 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navbar Example</title>
 </head>
 <style>
-    
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+  }
+  
+  .navbar .logo img {
+    height: 70px; 
+  }
+  
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+  }
+  
+  .nav-links li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+  }
+  
+  .nav-links li a:hover {
+    color: #ff0000;
+  }
+  
+  .mode-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  button {
+    padding: 8px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .dark-mode-btn {
+    background-color: #000000;
+    color: #fff;
+  }
+  
+  .light-mode-btn {
+    background-color: #fff;
+    color: #333;
+  }
+  
+  button:hover {
+    background-color: #ff0000;
+    color: white;
+  }
+  
+  body.dark-mode {
+    background-color: #121212;
+    color: #f1f1f1;
+  }
+  
+  body.dark-mode .navbar {
+    background-color: #333;
+  }
+  .landing-page {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    max-width: 1100px;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+  }
+  
+  .left-side {
+    max-width: 50%;
+  }
+  
+  .left-side h3 {
+    font-size: 1.2rem;
+    color: #ff0000;
+    margin-bottom: 10px;
+  }
+  
+  .left-side h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .left-side p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 30px;
+  }
+  
+  .buttons {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .btn {
+    padding: 12px 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .primary-btn {
+    background-color: #000000;
+    color: #ffffff;
+    border: 2px solid black;
+  }
+  
+  .secondary-btn {
+    background-color: #f4f4f4;
+    color: #ff0000;
+    border: 2px solid #000000;
+  }
+  
+  .primary-btn:hover {
+    background-color: #ff0000;
+    transform: scale(1.05);
+    border: 2px solid black;
+  }
+  
+  .secondary-btn:hover {
+    background-color: #ff0000;
+    transform: scale(1.05);
+  }
+  
+  .right-side {
+    max-width: 50%;
+  }
+  
+  .right-side img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
 </style>
 <body>
-    <h1> wajahat khanzada</h1>
-    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore est dolorem porro. Dolorem minima, recusandae
-        voluptatum, ab fugit delectus, exercitationem temporibus iure vel sint quaerat libero? Ducimus distinctio
-        pariatur dicta.</p>
-        <h2>wajahat khanzada</h2>
-        <p> my name is khan</p>
-        <img src="i.webp" alt="">
-   
-</body>
+  <nav class="navbar">
+    <div class="logo">
+      <img src="https://yt3.googleusercontent.com/f4u0M25qbrwnRFntmrCxPLsffOTumH-_sXNatnuic4Dd1HBhXWCI1CxI03enhFfDBMjMAad0GA=s900-c-k-c0x00ffffff-no-rj" alt="Logo" />
+    </div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">Services</a></li>
+    </ul>
+    <div class="mode-buttons">
+      <button class="dark-mode-btn"  id="enable">Dark Mode</button>
+      <button class="light-mode-btn" id="disable">Light Mode</button>
+    </div>
+  </nav>
+  <section class="landing-page">
+    <div class="left-side">
+      <h3>Looking for?</h3>
+      <h1>Your Next Adventure Awaits</h1>
+      <p>Discover exciting opportunities with us. We provide unique solutions tailored to your needs. Take the first step towards success!</p>
+      <div class="buttons">
+        <button class="btn primary-btn">Learn More</button>
+        <button class="btn secondary-btn">Get Started</button>
+      </div>
+    </div>
+    <div class="right-side">
+      <img src="https://treolink.ru/image/data/categories/cctv-camera.jpg" alt="Landing Image">
+    </div>
+  </section>
+  <script>
+    let dark = false
+    let Enable = document.getElementById('Enable')
+    let Disable = document.getElementById('Disable')
+    Disable.style.display = 'none'
 
+    Enable.addEventListener("click", () => {
+        if (dark == false) {
+            document.body.style.backgroundColor = "black";
+            dark = true
+            Enable.style.display = 'none'
+            Disable.style.display = 'block'
+        }
+    })
+
+    Disable.addEventListener("click", () => {
+        if (dark == true) {
+            document.body.style.backgroundColor = "white";
+            dark = false
+            Enable.style.display = 'block'
+            Disable.style.display = 'none'
+        }
+    })
+  </script>
+</body>
 </html>
